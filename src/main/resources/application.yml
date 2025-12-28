@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+fix:
+  config-file: quickfix-executor.cfg
+
+# Execution defaults
+executor:
+  default-fill-mode: IMMEDIATE_FULL
+  default-delay-ms: 1000
+  default-partial-fill-pct: 50
+
+logging:
+  level:
+    quickfix: INFO
+    com.example: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Development profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+logging:
+  level:
+    quickfix: DEBUG
+    com.example: DEBUG
+
+---
+# Production profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+logging:
+  level:
+    quickfix: WARN
+    com.example: INFO
