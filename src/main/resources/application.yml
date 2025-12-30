@@ -4,6 +4,17 @@ server:
 fix:
   config-file: quickfix-executor.cfg
 
+# Market Data Configuration
+market-data:
+  # Use real prices from Finnhub (set to false for offline/testing)
+  use-real-prices: true
+
+  finnhub:
+    # Get your FREE API key at: https://finnhub.io/register
+    # Set via environment variable FINNHUB_API_KEY or uncomment below:
+    api-key: d58rhg9r01qvj8iiggc0d58rhg9r01qvj8iiggcg
+    # api-key: your_api_key_here
+
 # Execution defaults
 executor:
   default-fill-mode: IMMEDIATE_FULL
